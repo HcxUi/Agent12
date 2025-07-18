@@ -1,0 +1,16 @@
+
+openai
+pyttsx3
+speechrecognition
+pyaudio
+vosk
+opencv-python
+telepot
+pyautogui
+keyboard
+tk
+flask
+pillow
+bs4
+requests
+sqlite3
