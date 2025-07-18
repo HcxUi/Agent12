@@ -2,19 +2,17 @@ from modules.voice import speak, listen_command
 from modules.face_detect import detect_face
 from modules.jarvis_gpt import ask_gpt
 
-speak("Initializing Jarvis...")
+def main():
+    speak("Hello! Initializing all modules.")
 
-if detect_face():
-    speak("Face recognized. Welcome back.")
+    cmd = listen_command()
+    speak(f"You said: {cmd}")
 
-while True:
-    query = listen_command().lower()
+    face_result = detect_face()
+    speak(face_result)
 
-    if "hello jarvis" in query or "hey jarvis" in query:
-        speak("Yes, I'm listening.")
-        command = listen_command()
-        if "who are you" in command:
-            speak("I'm Jarvis, your AI assistant.")
-        else:
-            response = ask_gpt(command)
-            speak(response)
+    gpt_response = ask_gpt(cmd)
+    speak(gpt_response)
+
+if __name__ == "__main__":
+    main()
